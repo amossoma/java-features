@@ -1,4 +1,4 @@
-# java-features
+# New java features
 
 ## Java 9 - branch java-9
 
