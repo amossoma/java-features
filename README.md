@@ -65,6 +65,11 @@ New reactive API
     java.util.concurrent.Flow.Processor
 ```
 ## Diamond Operator for Anonymous Inner Class
+```
+new InnerClass<Integer>() {
+...
+}
+```
 ## Optional Class Improvements
 ## Stream API Improvements
 ## Enhanced @Deprecated annotation
