@@ -43,6 +43,7 @@ HTTP Client introduced in Java 9, now is a part of Java 11 Standard.
         .stream()
         .filter(Predicate.not(String::isBlank))
 ```
+[Example 2](https://github.com/amossoma/java-features/blob/java-11/src/main/java/Example2.java)
 
 ## New APIs
 * java.lang.invoke.ConstantBootstraps
