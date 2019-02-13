@@ -1,19 +1,35 @@
-public interface Example2 {
-    default void methodWithDefaultImplementation() {
-        doSomething();
-    }
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-    default void anotherMethodWithDefaultImplementation() {
-        doSomething();
-    }
+public class Example2 {
+    public static void main(String[] args) {
+        List.copyOf(List.of(1,2,3))
+                .stream()
+                .forEach(System.out::println);
 
-    private void doSomething() {
-        System.out.println("Hello World!!!");
-    }
+        List.of(1,2,3)
+                .stream()
+                .collect(Collectors.toUnmodifiableList());
 
-    static void main(String[] args) {
-        Example2 interfaceWithPrivateMethods = new Example2() {};
-        interfaceWithPrivateMethods.methodWithDefaultImplementation();
-        interfaceWithPrivateMethods.anotherMethodWithDefaultImplementation();
+
+        Set.copyOf(Set.of(1,2,3))
+                .stream()
+                .forEach(System.out::println);
+
+        Set.of(1,2,3)
+                .stream()
+                .collect(Collectors.toUnmodifiableSet());
+
+        Map.copyOf(Map.of(1, 1, 2, 2, 3, 3))
+                .entrySet()
+                .stream()
+                .forEach(entry -> System.out.println(entry.getKey() + " -> " + entry.getValue()));
+
+        Map.of(1, 1, 2, 2, 3, 3)
+                .entrySet()
+                .stream()
+                .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }

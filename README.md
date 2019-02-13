@@ -1,139 +1,71 @@
-# Java 9 features
+# Java 10 features
 
 
-## Java 9 REPL (JShell)
+## Local Variable Type Inference
 ```
-    amos@ncc-1701e:~$ jshell
-    |  Welcome to JShell -- Version 11.0.1
-    |  For an introduction type: /help intro
-    
-    jshell> System.out.println("Hello World!!!");
-    Hello World!!!
-    
-    jshell>
+    var name = "John"
+    var index = 1
+    var users = List.of("John", "Mike")
 ```
+[Example 1](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example1.java)
 
-## Factory Methods for Immutable List, Set, Map and Map.Entry
+## Unmodifiable Collections
 ```
-    List.of(...)
-    Set.of(...)
-    Map.of(...)
-```
-[Example 1](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example1.java)
+    List.copyOf
+    Set.copyOf
+    Map.copyOf
+    Collectors.to
 
-## Private methods in Interfaces
 ```
-    public interface SomeInterface {
-        ...
-        private void privateMethod() {
-            System.out.println("Hello World!!!");
-        }
-        ...
-    }
-```
-[Example 2](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)
+[Example 2](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example2.java)
 
-## Java 9 Module System
-Divides everything into modules (like OSGI). Modules are described in module-info.java
+## Optional*.orElseThrow()
+Throws NoSuchElementException if no value is present.
 ```
-    module com.greetings {
-        requires org.astro;
-    }
+    Optional.orElseThrow()
+    OptionalDouble.orElseThrow()
+    OptionalInt.orElseThrow()
+    OptionalLong.orElseThrow()
 ```
-To show java modules type: 
-```
-    java --list-modules
-```
+[Example 3](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example3.java)
 
-## Process API Improvements
-Better controlling and managing processes. Two new interfaces:
-```
-    java.lang.ProcessHandle
-    java.lang.ProcessHandle.Info
-```
-[Example 3](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)
+## Performance Improvements
 
-## Try With Resources Improvement
-It's possible to use previously declared variable.
-```
-    ...
-    try(variable) {
-    ...
-    }
-    ...
-```
-[Example 4](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example4.java)
+* Parallel Full GC for G1
+* Application Class-Data Sharing (AppCDS) _,,allows a set of classes to be pre-processed into a shared archive file that can then be memory-mapped at runtime to reduce startup time which can also reduce dynamic memory footprint when multiple JVMs share the same archive file''_. AppCDS was a commercial feature in Oracle JDK for JDK 8 and JDK 9.
+* Experimental Java-Based JIT Compiler
 
-## CompletableFuture API Improvements
-New methods: 
+## Container Awareness (_linux only_)
+JVMs are now aware of being run in a Docker container. Java flags:
 ```
-    Executor defaultExecutor()
-    CompletableFuture<U> newIncompleteFuture()
-    CompletableFuture<T> copy()
-    CompletionStage<T> minimalCompletionStage()
-    CompletableFuture<T> completeAsync(Supplier<? extends T> supplier, Executor executor)
-    CompletableFuture<T> completeAsync(Supplier<? extends T> supplier)
-    CompletableFuture<T> orTimeout(long timeout, TimeUnit unit)
-    CompletableFuture<T> completeOnTimeout(T value, long timeout, TimeUnit unit)
-```
-[Example 5](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example5.java)
+    -XX:-UseContainerSupport
+    -XX:ActiveProcessorCount
+    -XX:InitialRAMPercentage
+    -XX:MaxRAMPercentage
+    -XX:MinRAMPercentage
+``` 
 
-## Reactive Streams
-New reactive API
-```
-    java.util.concurrent.Flow
-    java.util.concurrent.Flow.Publisher
-    java.util.concurrent.Flow.Subscriber
-    java.util.concurrent.Flow.Processor
-```
-[Example 6](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example6.java)
+## Root Certificates
+Oracle has open-sourced the root certificates in Oracle’s Java SE Root CA program in order to make OpenJDK builds more attractive to developers and to reduce the differences between those builds and Oracle JDK builds.
 
-## Diamond Operator for Anonymous Inner Class
-```
-    new InnerClass<Integer>() {
-    ...
-    }
-```
-[Example 7](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example7.java)
+## Deprecations 
+* java.security.acl
+* java.security.Certificate
+* java.security.Identity
+* java.security.IdentityScope
+* java.security.Signer
 
-## Optional Class Improvements
-New methods for Optional class
-```
-    stream()
-    ifPresentOrElse()
-    or()
-```
-[Example 8](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example8.java)
+## Removals
+* _javah_ tool -> _javac -h_
+* _policytool_ tool
+* _-Xprof_ java option
 
-## Stream API Improvements
-```
-    takeWhile()
-    dropWhile()
-    iterate()
-    ofNullable()
-```
-[Example 9](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example9.java)
+## Time-Based Release Versioning
+Oracle has moved to the time-based release of Java:
 
-## Enhanced @Deprecated annotation
-New parameters for annotation:
-```
-    @Deprecated(since = "2.8", forRemoval = true)
-```
+* A new Java release every six months. The March 2018 release is JDK 10, the September 2018 release is JDK 11, ...
+* Support for the feature release will last only for six months, i.e., until next feature release
+* Long-term support release will be marked as LTS. Support for such release will be for three years
+* Java 11 will be an LTS release
 
-## HTTP 2 Client
-[Example 10](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example10.java)
-
-## Multi-Resolution Image API
-[Example 11](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example11.java)
-
-## Miscellaneous Java 9 Features
-* Improved Javadoc (HTML5, Search) [[link](http://openjdk.java.net/jeps/299)]
-* Garbage Collector improvements [[link](https://openjdk.java.net/jeps/248), [link](https://openjdk.java.net/jeps/318)]
-* API for walking in Stack [[link](http://openjdk.java.net/jeps/259)]
-* Filter Incoming Serialization Data [[link](https://openjdk.java.net/jeps/290)]
-* Deprecate the Applet API [[link](https://openjdk.java.net/jeps/289)]
-* Indify String Concatenation [[link](https://openjdk.java.net/jeps/280)]
-* Enhanced Method Handles [[link](http://openjdk.java.net/jeps/193)]
-* Java Platform Logging API and Service [[link](https://openjdk.java.net/jeps/264)]
-* Compact Strings [[link](https://openjdk.java.net/jeps/254)]
-* Parser API for Nashorn [[link](https://openjdk.java.net/jeps/236)]
+[[link](http://openjdk.java.net/jeps/322)]
