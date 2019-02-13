@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class FactoryMethodsForImmutableCollections {
+public class Example1 {
 
     public static void main(String[] args) {
         List<Integer> integers = List.of(1, 2, 3, 4, 5);

@@ -2,7 +2,7 @@ package main.java;
 
 import java.util.concurrent.Flow;
 
-public class FlowApi {
+public class Example6 {
     public static void main(String[] args) {
         Flow.Publisher publisher = subscriber -> {
             subscriber.onNext(1);

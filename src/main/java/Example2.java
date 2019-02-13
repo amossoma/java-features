@@ -1,4 +1,4 @@
-public interface InterfaceWithPrivateMethods {
+public interface Example2 {
     default void methodWithDefaultImplementation() {
         doSomething();
     }
@@ -12,7 +12,7 @@ public interface InterfaceWithPrivateMethods {
     }
 
     static void main(String[] args) {
-        InterfaceWithPrivateMethods interfaceWithPrivateMethods = new InterfaceWithPrivateMethods() {};
+        Example2 interfaceWithPrivateMethods = new Example2() {};
         interfaceWithPrivateMethods.methodWithDefaultImplementation();
         interfaceWithPrivateMethods.anotherMethodWithDefaultImplementation();
     }

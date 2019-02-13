@@ -1,6 +1,4 @@
-package main.java;
-
-public class DiamondOperatorInAnonymousInnerClass {
+public class Example7 {
     public static void main(String[] args) {
         System.out.println(new Test<Integer>() {
             @Override

@@ -3,7 +3,7 @@ import java.time.ZoneId;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class ProcessApi {
+public class Example3 {
     private static final String NOT_PRESENT = "Not present";
 
     public static void main(String[] args) throws IOException {
