@@ -3,35 +3,37 @@
 
 ## Java 9 REPL (JShell)
 ```
-amos@ncc-1701e:~$ jshell
-|  Welcome to JShell -- Version 11.0.1
-|  For an introduction type: /help intro
-
-jshell> System.out.println("Hello World!!!");
-Hello World!!!
-
-jshell>
+    amos@ncc-1701e:~$ jshell
+    |  Welcome to JShell -- Version 11.0.1
+    |  For an introduction type: /help intro
+    
+    jshell> System.out.println("Hello World!!!");
+    Hello World!!!
+    
+    jshell>
 ```
 
 ## Factory Methods for Immutable List, Set, Map and Map.Entry
 ```
-List.of(...)
-Set.of(...)
-Map.of(...)
+    List.of(...)
+    Set.of(...)
+    Map.of(...)
 ```
 [Example 1](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example1.java)
 
 ## Private methods in Interfaces
 ```
-public interface SomeInterface {
-    ...
-    private void privateMethod() {
-        System.out.println("Hello World!!!");
+    public interface SomeInterface {
+        ...
+        private void privateMethod() {
+            System.out.println("Hello World!!!");
+        }
+        ...
     }
-    ...
-}
 ```
-[Example 2](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)## Java 9 Module System
+[Example 2](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)
+
+## Java 9 Module System
 
 ## Process API Improvements
 Better controlling and managing processes. Two new interfaces:
@@ -78,9 +80,9 @@ New reactive API
 
 ## Diamond Operator for Anonymous Inner Class
 ```
-new InnerClass<Integer>() {
-...
-}
+    new InnerClass<Integer>() {
+    ...
+    }
 ```
 [Example 7](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example7.java)
 
@@ -94,6 +96,12 @@ New methods for Optional class
 [Example 8](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example8.java)
 
 ## Stream API Improvements
+```
+    takeWhile()
+    dropWhile()
+    iterate()
+    ofNullable()
+```
 [Example 9](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example9.java)
 
 ## Enhanced @Deprecated annotation

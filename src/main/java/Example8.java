@@ -22,8 +22,10 @@ public class Example8 {
                         .collect(Collectors.joining(", ")));
 
         Optional.of("Test").ifPresentOrElse(System.out::println, () -> System.out.println("Nothing"));
+        Optional.empty().ifPresentOrElse(System.out::println, () -> System.out.println("Nothing"));
 
-        Optional.of("Test").or(() -> Optional.of("Test 2"));
+        Optional.of("Test").or(() -> Optional.of("Test 2")).ifPresent(System.out::println);
+        Optional.empty().or(() -> Optional.of("Test 2")).ifPresent(System.out::println);
     }
 
     private static Optional<String> findById(int i) {
