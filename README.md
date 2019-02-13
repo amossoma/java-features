@@ -1,77 +1,28 @@
-# Java 9 features
+# Java 12 features
 
 
-## Java 9 REPL (JShell)
+## Switch Expressions
+New syntax for switch
 ```
-amos@ncc-1701e:~$ jshell
-|  Welcome to JShell -- Version 11.0.1
-|  For an introduction type: /help intro
-
-jshell> System.out.println("Hello World!!!");
-Hello World!!!
-
-jshell>
+switch (day) {
+    case MONDAY, FRIDAY, SUNDAY -> System.out.println(6);
+    case TUESDAY                -> System.out.println(7);
+    case THURSDAY, SATURDAY     -> System.out.println(8);
+    case WEDNESDAY              -> System.out.println(9);
+}
 ```
-## Factory Methods for Immutable List, Set, Map and Map.Entry
+Switch can return values 
 ```
-List.of(...)
-Set.of(...)
-Map.of(...)
-```
-## Private methods in Interfaces
-```
-public interface SomeInterface {
-    ...
-    private void privateMethod() {
-        System.out.println("Hello World!!!");
-    }
+int dayNumber = switch (day) {
+    case MONDAY -> 1;
+    case TUESDAY -> 2;
     ...
 }
 ```
-## Java 9 Module System
-## Process API Improvements
-Better controlling and managing processes. Two new interfaces:
-```
-    java.lang.ProcessHandle
-    java.lang.ProcessHandle.Info
-```
-## Try With Resources Improvement
-It's possible to use previously declared variable.
-```
-    ...
-    try(variable) {
-    ...
-    }
-    ...
-```
-## CompletableFuture API Improvements
-New methods: 
-```
-    Executor defaultExecutor()
-    CompletableFuture<U> newIncompleteFuture()
-    CompletableFuture<T> copy()
-    CompletionStage<T> minimalCompletionStage()
-    CompletableFuture<T> completeAsync(Supplier<? extends T> supplier, Executor executor)
-    CompletableFuture<T> completeAsync(Supplier<? extends T> supplier)
-    CompletableFuture<T> orTimeout(long timeout, TimeUnit unit)
-    CompletableFuture<T> completeOnTimeout(T value, long timeout, TimeUnit unit)
-```
-## Reactive Streams
-New reactive API
-```
-    java.util.concurrent.Flow
-    java.util.concurrent.Flow.Publisher
-    java.util.concurrent.Flow.Subscriber
-    java.util.concurrent.Flow.Processor
-```
-## Diamond Operator for Anonymous Inner Class
-## Optional Class Improvements
-## Stream API Improvements
-## Enhanced @Deprecated annotation
-New parameters for annotation:
-```
-    @Deprecated(since = "2.8", forRemoval = true)
-```
-## HTTP 2 Client
-## Multi-Resolution Image API
-## Miscellaneous Java 9 Features
+## Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
+## Microbenchmark Suite
+## JVM Constants API
+## One AArch64 Port, Not Two
+## Default CDS Archives
+## Abortable Mixed Collections for G1
+## Promptly Return Unused Committed Memory from G1
