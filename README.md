@@ -12,6 +12,7 @@ Hello World!!!
 
 jshell>
 ```
+
 ## Factory Methods for Immutable List, Set, Map and Map.Entry
 ```
 List.of(...)
@@ -19,6 +20,7 @@ Set.of(...)
 Map.of(...)
 ```
 [Example 1](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example1.java)
+
 ## Private methods in Interfaces
 ```
 public interface SomeInterface {
@@ -30,6 +32,7 @@ public interface SomeInterface {
 }
 ```
 [Example 2](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)## Java 9 Module System
+
 ## Process API Improvements
 Better controlling and managing processes. Two new interfaces:
 ```
@@ -37,6 +40,7 @@ Better controlling and managing processes. Two new interfaces:
     java.lang.ProcessHandle.Info
 ```
 [Example 3](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)
+
 ## Try With Resources Improvement
 It's possible to use previously declared variable.
 ```
@@ -47,6 +51,7 @@ It's possible to use previously declared variable.
     ...
 ```
 [Example 4](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example4.java)
+
 ## CompletableFuture API Improvements
 New methods: 
 ```
@@ -60,6 +65,7 @@ New methods:
     CompletableFuture<T> completeOnTimeout(T value, long timeout, TimeUnit unit)
 ```
 [Example 5](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example5.java)
+
 ## Reactive Streams
 New reactive API
 ```
@@ -69,6 +75,7 @@ New reactive API
     java.util.concurrent.Flow.Processor
 ```
 [Example 6](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example6.java)
+
 ## Diamond Operator for Anonymous Inner Class
 ```
 new InnerClass<Integer>() {
@@ -76,6 +83,7 @@ new InnerClass<Integer>() {
 }
 ```
 [Example 7](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example7.java)
+
 ## Optional Class Improvements
 New methods for Optional class
 ```
@@ -84,15 +92,20 @@ New methods for Optional class
     or()
 ```
 [Example 8](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example8.java)
+
 ## Stream API Improvements
 [Example 9](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example9.java)
+
 ## Enhanced @Deprecated annotation
 New parameters for annotation:
 ```
     @Deprecated(since = "2.8", forRemoval = true)
 ```
+
 ## HTTP 2 Client
 [Example 10](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example10.java)
+
 ## Multi-Resolution Image API
 [Example 11](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example11.java)
+
 ## Miscellaneous Java 9 Features
