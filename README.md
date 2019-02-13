@@ -34,6 +34,16 @@
 [Example 2](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example3.java)
 
 ## Java 9 Module System
+Divides everything into modules (like OSGI). Modules are described in module-info.java
+```
+    module com.greetings {
+        requires org.astro;
+    }
+```
+To show java modules type: 
+```
+    java --list-modules
+```
 
 ## Process API Improvements
 Better controlling and managing processes. Two new interfaces:
@@ -117,3 +127,13 @@ New parameters for annotation:
 [Example 11](https://github.com/amossoma/java-features/blob/java-9/src/main/java/Example11.java)
 
 ## Miscellaneous Java 9 Features
+* Improved Javadoc (HTML5, Search) [[link](http://openjdk.java.net/jeps/299)]
+* Garbage Collector improvements [[link](https://openjdk.java.net/jeps/248), [link](https://openjdk.java.net/jeps/318)]
+* API for walking in Stack [[link](http://openjdk.java.net/jeps/259)]
+* Filter Incoming Serialization Data [[link](https://openjdk.java.net/jeps/290)]
+* Deprecate the Applet API [[link](https://openjdk.java.net/jeps/289)]
+* Indify String Concatenation [[link](https://openjdk.java.net/jeps/280)]
+* Enhanced Method Handles [[link](http://openjdk.java.net/jeps/193)]
+* Java Platform Logging API and Service [[link](https://openjdk.java.net/jeps/264)]
+* Compact Strings [[link](https://openjdk.java.net/jeps/254)]
+* Parser API for Nashorn [[link](https://openjdk.java.net/jeps/236)]
