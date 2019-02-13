@@ -1,71 +1,140 @@
-# Java 10 features
+# Java 11 features
 
 
-## Local Variable Type Inference
+## Local-Variable Syntax for Lambda Parameters
 ```
-    var name = "John"
-    var index = 1
-    var users = List.of("John", "Mike")
+    (var name) -> name.toLowerCase()
+    (@SomeAnnotation var name) -> name.toLowerCase()
 ```
-[Example 1](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example1.java)
+[Example 1](https://github.com/amossoma/java-features/blob/java-11/src/main/java/Example1.java)
 
-## Unmodifiable Collections
+## Launch Single-File Source-Code Programs
 ```
-    List.copyOf
-    Set.copyOf
-    Map.copyOf
-    Collectors.to
-
+    java HelloWorld.java
 ```
-[Example 2](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example2.java)
 
-## Optional*.orElseThrow()
-Throws NoSuchElementException if no value is present.
+## HTTP Client
+HTTP Client introduced in Java 9, now is a part of Java 11 Standard.
+
+## Remove The Java EE and CORBA Modules
+
+* corba
+* transaction
+* activation
+* xml.bind
+* xml.ws
+* xml.ws.annotation
+
+## Miscellaneous features
+* String
 ```
-    Optional.orElseThrow()
-    OptionalDouble.orElseThrow()
-    OptionalInt.orElseThrow()
-    OptionalLong.orElseThrow()
+    isBlank()
+    lines()
+    repeat()
+    strip()
+    stripLeading()
+    stripTrainling()
 ```
-[Example 3](https://github.com/amossoma/java-features/blob/java-10/src/main/java/Example3.java)
-
-## Performance Improvements
-
-* Parallel Full GC for G1
-* Application Class-Data Sharing (AppCDS) _,,allows a set of classes to be pre-processed into a shared archive file that can then be memory-mapped at runtime to reduce startup time which can also reduce dynamic memory footprint when multiple JVMs share the same archive file''_. AppCDS was a commercial feature in Oracle JDK for JDK 8 and JDK 9.
-* Experimental Java-Based JIT Compiler
-
-## Container Awareness (_linux only_)
-JVMs are now aware of being run in a Docker container. Java flags:
+* Thread - _destroy()_ and _stop(Throwable)_ methods have been removed
+* Predicate
 ```
-    -XX:-UseContainerSupport
-    -XX:ActiveProcessorCount
-    -XX:InitialRAMPercentage
-    -XX:MaxRAMPercentage
-    -XX:MinRAMPercentage
-``` 
+    Predicate not(Predicate)
+    lines
+        .stream()
+        .filter(Predicate.not(String::isBlank))
+```
 
-## Root Certificates
-Oracle has open-sourced the root certificates in Oracle’s Java SE Root CA program in order to make OpenJDK builds more attractive to developers and to reduce the differences between those builds and Oracle JDK builds.
+## New APIs
+* java.lang.invoke.ConstantBootstraps
+* java.net.http.HttpClient
+* java.net.http.HttpClient$Builder
+* java.net.http.HttpClient$Redirect
+* java.net.http.HttpClient$Version
+* java.net.http.HttpConnectTimeoutException
+* java.net.http.HttpHeaders
+* java.net.http.HttpRequest
+* java.net.http.HttpRequest$BodyPublisher
+* java.net.http.HttpRequest$BodyPublishers
+* java.net.http.HttpRequest$Builder
+* java.net.http.HttpResponse
+* java.net.http.HttpResponse$BodyHandler
+* java.net.http.HttpResponse$BodyHandlers
+* java.net.http.HttpResponse$BodySubscriber
+* java.net.http.HttpResponse$BodySubscribers
+* java.net.http.HttpResponse$PushPromiseHandler
+* java.net.http.HttpResponse$ResponseInfo
+* java.net.http.HttpTimeoutException
+* java.net.http.WebSocket
+* java.net.http.WebSocket$Builder
+* java.net.http.WebSocket$Listener
+* java.net.http.WebSocketHandshakeException
+* java.security.interfaces.XECKey
+* java.security.interfaces.XECPrivateKey
+* java.security.interfaces.XECPublicKey
+* java.security.spec.NamedParameterSpec
+* java.security.spec.XECPrivateKeySpec
+* java.security.spec.XECPublicKeySpec
+* javax.print.attribute.standard.DialogOwner
+* jdk.jfr.AnnotationElement
+* jdk.jfr.BooleanFlag
+* jdk.jfr.Category
+* jdk.jfr.Configuration
+* jdk.jfr.consumer.RecordedClass
+* jdk.jfr.consumer.RecordedClassLoader
+* jdk.jfr.consumer.RecordedEvent
+* jdk.jfr.consumer.RecordedFrame
+* jdk.jfr.consumer.RecordedMethod
+* jdk.jfr.consumer.RecordedObject
+* jdk.jfr.consumer.RecordedStackTrace
+* jdk.jfr.consumer.RecordedThread
+* jdk.jfr.consumer.RecordedThreadGroup
+* jdk.jfr.consumer.RecordingFile
+* jdk.jfr.ContentType
+* jdk.jfr.DataAmount
+* jdk.jfr.Description
+* jdk.jfr.Enabled
+* jdk.jfr.Event
+* jdk.jfr.EventFactory
+* jdk.jfr.EventSettings
+* jdk.jfr.EventType
+* jdk.jfr.Experimental
+* jdk.jfr.FlightRecorder
+* jdk.jfr.FlightRecorderListener
+* jdk.jfr.FlightRecorderPermission
+* jdk.jfr.Frequency
+* jdk.jfr.Label
+* jdk.jfr.MemoryAddress
+* jdk.jfr.MetadataDefinition
+* jdk.jfr.Name
+* jdk.jfr.Percentage
+* jdk.jfr.Period
+* jdk.jfr.Recording
+* jdk.jfr.RecordingState
+* jdk.jfr.Registered
+* jdk.jfr.Relational
+* jdk.jfr.SettingControl
+* jdk.jfr.SettingDefinition
+* jdk.jfr.SettingDescriptor
+* jdk.jfr.StackTrace
+* jdk.jfr.Threshold
+* jdk.jfr.Timespan
+* jdk.jfr.Timestamp
+* jdk.jfr.TransitionFrom
+* jdk.jfr.TransitionTo
+* jdk.jfr.Unsigned
+* jdk.jfr.ValueDescriptor
+* jdk.jshell.TypePrinter$AnonymousTypeKind
+* jdk.management.jfr.ConfigurationInfo
+* jdk.management.jfr.EventTypeInfo
+* jdk.management.jfr.FlightRecorderMXBean
+* jdk.management.jfr.RecordingInfo
+* jdk.management.jfr.SettingDescriptorInfo
+* jdk.nio.Channels
+* jdk.nio.Channels$SelectableChannelCloser
+* jdk.swing.interop.DispatcherWrapper
+* jdk.swing.interop.DragSourceContextWrapper
+* jdk.swing.interop.DropTargetContextWrapper
+* jdk.swing.interop.LightweightContentWrapper
+* jdk.swing.interop.LightweightFrameWrapper
+* jdk.swing.interop.SwingInterOpUtils
 
-## Deprecations 
-* java.security.acl
-* java.security.Certificate
-* java.security.Identity
-* java.security.IdentityScope
-* java.security.Signer
-
-## Removals
-* _javah_ tool -> _javac -h_
-* _policytool_ tool
-* _-Xprof_ java option
-
-## Time-Based Release Versioning
-Oracle has moved to the time-based release of Java:
-
-* A new Java release every six months. The March 2018 release is JDK 10, the September 2018 release is JDK 11, ...
-* Support for the feature release will last only for six months, i.e., until next feature release
-* Long-term support release will be marked as LTS. Support for such release will be for three years
-* Java 11 will be an LTS release
-
-[[link](http://openjdk.java.net/jeps/322)]
