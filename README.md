@@ -1,9 +1,6 @@
 # New java features
 
-## Java 9 - branch java-9
-
-## Java 10 - branch java-10
-
-## Java 11 - branch java-11
-
-## Java 12 - branch java-12
+## [Java 9](https://github.com/amossoma/java-features/tree/java-9)
+## [Java 10](https://github.com/amossoma/java-features/tree/java-10)
+## [Java 11](https://github.com/amossoma/java-features/tree/java-11)
+## [Java 12](https://github.com/amossoma/java-features/tree/java-12)
