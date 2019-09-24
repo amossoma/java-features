@@ -1,28 +1,57 @@
-# Java 12 features
+# Java 13 features
 
 
-## Switch Expressions
-New syntax for switch
-```
-switch (day) {
-    case MONDAY, FRIDAY, SUNDAY -> System.out.println(6);
-    case TUESDAY                -> System.out.println(7);
-    case THURSDAY, SATURDAY     -> System.out.println(8);
-    case WEDNESDAY              -> System.out.println(9);
-}
-```
-Switch can return values 
+## Switch Expressions ([https://openjdk.java.net/jeps/354](JEP 354))
+"yield" for switch
 ```
 int dayNumber = switch (day) {
     case MONDAY -> 1;
     case TUESDAY -> 2;
     ...
+    default -> {
+       ...
+       yiekd result; // was "break result;" in java 12
+    }
 }
 ```
-## Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)
-## Microbenchmark Suite
-## JVM Constants API
-## One AArch64 Port, Not Two
-## Default CDS Archives
-## Abortable Mixed Collections for G1
-## Promptly Return Unused Committed Memory from G1
+## Text Blocks (Preview) ([https://openjdk.java.net/jeps/355](JEP 355))
+To enable it use switch _--enable-preview_
+### Code 1
+```
+String html = """
+              <html>
+                  <body>
+                      <p>Hello, world</p>
+                  </body>
+              </html>
+""";
+```
+### Result 1
+```
+              <html>
+                  <body>
+                      <p>Hello, world</p>
+                  </body>
+              </html>
+```
+### Code 2
+```
+String html = """
+              <html>
+                  <body>
+                      <p>Hello, world</p>
+                  </body>
+              </html>
+                  """;
+```
+### Result 2
+```
+<html>
+    <body>
+        <p>Hello, world</p>
+    </body>
+</html>
+```
+## Dynamic CDS Archives ([https://openjdk.java.net/jeps/350](JEP 350))
+## ZGC: Uncommit Unused Memory ([https://openjdk.java.net/jeps/351](JEP 351))
+## Reimplement the Legacy Socket ([https://openjdk.java.net/jeps/353](API JEP 353)) 
