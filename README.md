@@ -1,7 +1,7 @@
 # Java 13 features
 
 
-## Switch Expressions ([https://openjdk.java.net/jeps/354](JEP 354))
+## Switch Expressions ([JEP 354](https://openjdk.java.net/jeps/354))
 "yield" for switch
 ```
 int dayNumber = switch (day) {
@@ -14,7 +14,7 @@ int dayNumber = switch (day) {
     }
 }
 ```
-## Text Blocks (Preview) ([https://openjdk.java.net/jeps/355](JEP 355))
+## Text Blocks (Preview) ([JEP 355](https://openjdk.java.net/jeps/355))
 To enable it use switch _--enable-preview_
 ### Code 1
 ```
@@ -52,6 +52,6 @@ String html = """
     </body>
 </html>
 ```
-## Dynamic CDS Archives ([https://openjdk.java.net/jeps/350](JEP 350))
-## ZGC: Uncommit Unused Memory ([https://openjdk.java.net/jeps/351](JEP 351))
-## Reimplement the Legacy Socket ([https://openjdk.java.net/jeps/353](API JEP 353)) 
+## Dynamic CDS Archives ([JEP 350](https://openjdk.java.net/jeps/350))
+## ZGC: Uncommit Unused Memory ([JEP 351](https://openjdk.java.net/jeps/351))
+## Reimplement the Legacy Socket API ([JEP 353](https://openjdk.java.net/jeps/353)) 
